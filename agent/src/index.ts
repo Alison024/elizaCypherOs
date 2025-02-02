@@ -27,6 +27,7 @@ import { PrimusAdapter } from "@elizaos/plugin-primus";
 import { lightningPlugin } from "@elizaos/plugin-lightning";
 import { elizaCodeinPlugin, onchainJson } from "@elizaos/plugin-iq6900";
 import { dcapPlugin } from "@elizaos/plugin-dcap";
+import {def}
 import {
     AgentRuntime,
     CacheManager,
@@ -155,6 +156,7 @@ import { ankrPlugin } from "@elizaos/plugin-ankr";
 import { formPlugin } from "@elizaos/plugin-form";
 import { MongoClient } from "mongodb";
 import { quickIntelPlugin } from "@elizaos/plugin-quick-intel";
+import { defaultCharacter } from "../../packages/core/src/defaultCharacter";
 
 import { trikonPlugin } from "@elizaos/plugin-trikon";
 import arbitragePlugin from "@elizaos/plugin-arbitrage";
@@ -360,7 +362,7 @@ async function jsonToCharacter(
 }
 
 async function loadCharacter(filePath: string): Promise<Character> {
-    const content = tryLoadFile(filePath);
+    const content = defaultCharacter;//tryLoadFile(filePath);
     if (!content) {
         throw new Error(`Character file not found: ${filePath}`);
     }
